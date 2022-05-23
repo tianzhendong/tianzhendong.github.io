@@ -1,0 +1,2154 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="dll生成与使用, C++ QT Python">
+    <meta name="description" content="个人主页 | 笔记本 | 杂记">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google-site-verification" content="pBWoGvVEP36FzzS4xIpoMejc5UKi3RKcxd9rWWcjiDg" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>dll生成与使用 | TianZD</title>
+
+    <link rel="icon" type="image/png" href="/assets/1/touxiang.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?aaa6c944b0ed07922901d7fc571a171d";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+<meta name="generator" content="Hexo 5.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="TianZD" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/assets/1/TianZD22.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">TianZD</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/census">
+          
+          <i class="fas fa-layer-group" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>统计</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/archives">
+          
+          <i class="fas fa-paper-plane" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>时轴</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/tags">
+          
+          <i class="fas fa-tag" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>标签</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-link" style="zoom: 0.6;"></i>
+      
+      <span>友链</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/assets/1/TianZD22.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">TianZD</div>
+        <div class="logo-desc">
+            
+            个人主页 | 笔记本 | 杂记
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-archive"></i>
+			
+			归档
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/census " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-layer-group" style="position: absolute;left:28px" ></i>
+			      
+		          <span>统计</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-paper-plane" style="position: absolute;left:28px" ></i>
+			      
+		          <span>时轴</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/tags " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-tag" style="position: absolute;left:28px" ></i>
+			      
+		          <span>标签</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-link"></i>
+			
+			友链
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/tianzhendong/hexo_blog" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/tianzhendong/hexo_blog" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/assets/posts/20200928014621.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">dll生成与使用</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        background-color: white;
+        width: 345px;
+        padding-left: 20px;
+        border-radius: 10px;
+        box-shadow: 0 10px 35px 2px rgba(0, 0, 0, .15), 0 5px 15px rgba(0, 0, 0, .07), 0 2px 5px -5px rgba(0, 0, 0, .1) !important;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+    
+    #toc-content {
+        height: calc(100vh - 300px);
+        overflow: scroll;
+
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+        bottom: 120px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/C/">
+                                <span class="chip bg-color">C++</span>
+                            </a>
+                        
+                            <a href="/tags/DLL/">
+                                <span class="chip bg-color">DLL</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/C/" class="post-category">
+                                C++
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-05-23
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2022-05-23
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4.1k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    18 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>[toc]</p>
+<h1 id="DLL生成与使用-Clion、Visual-Studio、QT-Creator"><a href="#DLL生成与使用-Clion、Visual-Studio、QT-Creator" class="headerlink" title="DLL生成与使用(Clion、Visual Studio、QT Creator)"></a>DLL生成与使用(Clion、Visual Studio、QT Creator)</h1><h2 id="DLL概述"><a href="#DLL概述" class="headerlink" title="DLL概述"></a>DLL概述</h2><p>本节内容<a target="_blank" rel="noopener" href="https://blog.csdn.net/elaine_bao/article/details/51784864?spm=1001.2101.3001.6650.6&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-6.pc_relevant_default&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-6.pc_relevant_default&amp;utm_relevant_index=12">来自博客</a></p>
+<p>它们是一些独立的文件，其中包含能被可执行程序或其他dll调用来完成某项工作的函数，只有在其他模块调用dll中的函数时，dll才发挥作用。</p>
+<p>在实际编程中，我们可以把完成某项功能的函数放在一个动态链接库里，然后提供给其他程序调用。像Windows API中所有的函数都包含在dll中，如Kernel32.dll, User32.dll, GDI32.dll等。那么dll究竟有什么好处呢？</p>
+<h3 id="静态库和动态库"><a href="#静态库和动态库" class="headerlink" title="静态库和动态库"></a>静态库和动态库</h3><h4 id="静态库"><a href="#静态库" class="headerlink" title="静态库"></a>静态库</h4><p>函数和数据被编译进一个二进制文件（扩展名通常为.lib）</p>
+<p>在使用静态库的情况下，在编译链接可执行文件时，链接器从静态库中<strong>复制这些函数和数据，并把它们和应用程序的其他模块组合起来创建最终的可执行文件（.exe）</strong>。<strong>当发布产品时，只需要发布这个可执行文件，并不需要发布被使用的静态库。</strong></p>
+<h4 id="动态库"><a href="#动态库" class="headerlink" title="动态库"></a>动态库</h4><p>在使用动态库时，往往提供两个文件：<strong>一个引入库（.lib，非必须）和一个.dll文件</strong>。</p>
+<p>这里的引入库和静态库文件虽然扩展名都是.lib，但是有着本质上的区别，对于一个动态链接库来说，<strong>其引入库文件包含该动态库导出的函数和变量的符号名，而.dll文件包含该动态库实际的函数和数据。</strong></p>
+<h3 id="使用动态链接库的好处"><a href="#使用动态链接库的好处" class="headerlink" title="使用动态链接库的好处"></a>使用动态链接库的好处</h3><ul>
+<li><p><strong>可以使用多种编程语言编写</strong>：比如我们可以用VC++编写dll，然后在VB编写的程序中调用它。</p>
+</li>
+<li><p><strong>增强产品功能</strong>：可以通过开发新的dll取代产品原有的dll，达到增强产品性能的目的。比如我们看到很多产品踢动了界面插件功能，允许用户动态地更换程序的界面，这就可以通过更换界面dll来实现。</p>
+</li>
+<li><p>提供二次开发的平台：用户可以单独利用dll调用其中实现的功能，来完成其他应用，实现二次开发。</p>
+</li>
+<li><p><strong>节省内存</strong>：如果多个应用程序使用同一个dll，该dll的页面只需要存入内存一次，所有的应用程序都可以共享它的页面，从而节省内存。</p>
+</li>
+</ul>
+<h2 id="Clion-msvc"><a href="#Clion-msvc" class="headerlink" title="Clion+msvc"></a>Clion+msvc</h2><p>生成的dll可以在使用同一编译器的不同sdk之间相互调用，但是要注意导出的是x86还是amd64</p>
+<h3 id="生成DLL"><a href="#生成DLL" class="headerlink" title="生成DLL"></a>生成DLL</h3><h4 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h4><p>C++库-类型选择shared</p>
+<p><img src="./assets/dll%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/202204280931661.png" alt="image-20220415075952640"></p>
+<h4 id="新建文件"><a href="#新建文件" class="headerlink" title="新建文件"></a>新建文件</h4><p>右键项目，新建C/C++源文件（或者直接新建一个类），并勾选创建关联头</p>
+<p><img src="./assets/dll%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/202204161800789.png" alt="image-20220415080306293"></p>
+<h4 id="编写c"><a href="#编写c" class="headerlink" title="编写c++"></a>编写c++</h4><p>注意，类中的变量和函数只有public类型才可以被访问。</p>
+<ul>
+<li>使用<code>__declspec(dllexport)</code>声明导出函数</li>
+<li>使用<code>extern “C” __declspec(dllexport)</code>声明导出函数为c类型</li>
+</ul>
+<p><code>DllDemo.h</code></p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifndef</span> <span class="token expression">DLLDEMO_DLLDEMO_H</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token expression">DLLDEMO_DLLDEMO_H</span></span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;string&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+using namespace std<span class="token punctuation">;</span>
+<span class="token comment">//使用__declspec(dllexport)声明导出函数</span>
+<span class="token function">__declspec</span><span class="token punctuation">(</span>dllexport<span class="token punctuation">)</span> <span class="token keyword">void</span> <span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">__declspec</span><span class="token punctuation">(</span>dllexport<span class="token punctuation">)</span> <span class="token keyword">int</span> <span class="token function">myAdd</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+class <span class="token function">__declspec</span><span class="token punctuation">(</span>dllexport<span class="token punctuation">)</span> Student<span class="token punctuation">{</span>
+public<span class="token operator">:</span>
+    <span class="token keyword">void</span> <span class="token function">setName</span><span class="token punctuation">(</span>string name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    string <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">void</span> <span class="token function">setAge</span><span class="token punctuation">(</span><span class="token keyword">int</span> age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> <span class="token function">getAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+private<span class="token operator">:</span>
+    string name<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> age<span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span> <span class="token comment">//DLLDEMO_DLLDEMO_H</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>DllDemo.cpp</code></p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"DllDemo.h"</span></span>
+
+<span class="token keyword">void</span> <span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    cout<span class="token operator">&lt;&lt;</span><span class="token string">"hello!"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">myAdd</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> a<span class="token operator">+</span>b<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> Student<span class="token operator">::</span><span class="token function">setName</span><span class="token punctuation">(</span>string name<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    this<span class="token operator">-&gt;</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+string Student<span class="token operator">::</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> this<span class="token operator">-&gt;</span>name<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> Student<span class="token operator">::</span><span class="token function">setAge</span><span class="token punctuation">(</span><span class="token keyword">int</span> age<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    this<span class="token operator">-&gt;</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> Student<span class="token operator">::</span><span class="token function">getAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> this<span class="token operator">-&gt;</span>age<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h4><p>在debug目录下生成了.dll、.lib文件，后续主要用到.dll、.lib和.h文件</p>
+<p><img src="./assets/dll%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/202204161800737.png" alt="image-20220415081755593"></p>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>测试工具目录：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">C:<span class="token punctuation">\</span>Program Files <span class="token punctuation">(</span>x86<span class="token punctuation">)</span><span class="token punctuation">\</span>Microsoft Visual Studio <span class="token number">14.0</span><span class="token punctuation">\</span>VC<span class="token punctuation">\</span>bin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>win+r——cmd 进入上述目录</p>
+<p>输入</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">VCVARS32.bat<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>然后进入dll文件所在目录</p>
+<p>输入</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">dumpbin -exports Dll1.dll<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="使用dll"><a href="#使用dll" class="headerlink" title="使用dll"></a>使用dll</h3><h4 id="新建项目-1"><a href="#新建项目-1" class="headerlink" title="新建项目"></a>新建项目</h4><p><img src="./assets/dll%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/202204161800823.png" alt="image-20220415082005386"></p>
+<h4 id="在项目根目录新建lib文件夹"><a href="#在项目根目录新建lib文件夹" class="headerlink" title="在项目根目录新建lib文件夹"></a>在项目根目录新建lib文件夹</h4><p>将上述生成的.dll   .lib 和编写的.h文件复制到lib中</p>
+<p><img src="./assets/dll%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/202204161800779.png" alt="image-20220415104232406"></p>
+<h4 id="cmakelist-txt添加："><a href="#cmakelist-txt添加：" class="headerlink" title="cmakelist.txt添加："></a>cmakelist.txt添加：</h4><pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake"><span class="token keyword">cmake_minimum_required</span><span class="token punctuation">(</span><span class="token property">VERSION</span> <span class="token number">3.21</span><span class="token punctuation">)</span>
+<span class="token keyword">project</span><span class="token punctuation">(</span>DllUser<span class="token punctuation">)</span>
+
+<span class="token keyword">set</span><span class="token punctuation">(</span><span class="token variable">CMAKE_CXX_STANDARD</span> <span class="token number">14</span><span class="token punctuation">)</span>
+<span class="token comment"># 包含文件夹</span>
+<span class="token keyword">include_directories</span><span class="token punctuation">(</span>
+        src
+        lib
+<span class="token punctuation">)</span>
+<span class="token comment"># 新增;指项目根目录下的lib目录</span>
+<span class="token keyword">link_directories</span><span class="token punctuation">(</span>lib<span class="token punctuation">)</span>
+
+<span class="token keyword">add_executable</span><span class="token punctuation">(</span><span class="token punctuation">${</span><span class="token variable">PROJECT_NAME</span><span class="token punctuation">}</span>
+        src/main.cpp<span class="token punctuation">)</span>
+
+<span class="token comment"># 新增;指目标链接的dll文件</span>
+<span class="token keyword">target_link_libraries</span><span class="token punctuation">(</span><span class="token punctuation">${</span><span class="token variable">PROJECT_NAME</span><span class="token punctuation">}</span>
+        DllDemo<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="运行-调试配置："><a href="#运行-调试配置：" class="headerlink" title="运行/调试配置："></a>运行/调试配置：</h4><p><img src="./assets/dll%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/202204161801274.png" alt="image-20220415082456066"></p>
+<h4 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h4><blockquote>
+<p>方法1：lib中需要dll、lib和h三个文件</p>
+</blockquote>
+<ul>
+<li>添加头文件</li>
+<li>调用函数</li>
+</ul>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token comment">//添加头文件</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"lib/DllDemo.h"</span></span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout<span class="token operator">&lt;&lt;</span><span class="token function">myAdd</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    Student tian<span class="token punctuation">;</span>
+    tian<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">"TianZD"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    tian<span class="token punctuation">.</span><span class="token function">setAge</span><span class="token punctuation">(</span><span class="token number">18</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout<span class="token operator">&lt;&lt;</span><span class="token string">"tian'name:"</span><span class="token operator">&lt;&lt;</span>tian<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    cout<span class="token operator">&lt;&lt;</span><span class="token string">"tian'age:"</span><span class="token operator">&lt;&lt;</span>tian<span class="token punctuation">.</span><span class="token function">getAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>可以看到正确输出</p>
+<blockquote>
+<p>方法2：lib中只需要dll文件</p>
+</blockquote>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;string&gt;</span></span>
+using namespace std<span class="token punctuation">;</span>
+<span class="token comment">//#include "lib/DllDemo.h"</span>
+
+<span class="token function">__declspec</span><span class="token punctuation">(</span>dllimport<span class="token punctuation">)</span> <span class="token keyword">void</span> <span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">__declspec</span><span class="token punctuation">(</span>dllimport<span class="token punctuation">)</span> class Student<span class="token punctuation">{</span>
+private<span class="token operator">:</span>
+    string name<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> age<span class="token punctuation">;</span>
+public<span class="token operator">:</span>
+    <span class="token keyword">void</span> <span class="token function">setName</span><span class="token punctuation">(</span>string name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">void</span> <span class="token function">setAge</span><span class="token punctuation">(</span><span class="token keyword">int</span> age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    string <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> <span class="token function">getAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Student tian<span class="token punctuation">;</span>
+    tian<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">"TianZD"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    tian<span class="token punctuation">.</span><span class="token function">setAge</span><span class="token punctuation">(</span><span class="token number">18</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout<span class="token operator">&lt;&lt;</span><span class="token string">"tian'name:"</span><span class="token operator">&lt;&lt;</span>tian<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    cout<span class="token operator">&lt;&lt;</span><span class="token string">"tian'age:"</span><span class="token operator">&lt;&lt;</span>tian<span class="token punctuation">.</span><span class="token function">getAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="多层调用"><a href="#多层调用" class="headerlink" title="多层调用"></a>多层调用</h3><p>DllDemo1使用上面的</p>
+<h4 id="新建DllDemo2-Dll文件"><a href="#新建DllDemo2-Dll文件" class="headerlink" title="新建DllDemo2 Dll文件"></a>新建DllDemo2 Dll文件</h4><h4 id="将DllDemo1的dll、lib、h文件放入lib中"><a href="#将DllDemo1的dll、lib、h文件放入lib中" class="headerlink" title="将DllDemo1的dll、lib、h文件放入lib中"></a>将DllDemo1的dll、lib、h文件放入lib中</h4><h4 id="编写DllDemo2-h和-cpp"><a href="#编写DllDemo2-h和-cpp" class="headerlink" title="编写DllDemo2.h和.cpp"></a>编写DllDemo2.h和.cpp</h4><h5 id="情况一：2的h中没有引入1的内容，cpp中引入"><a href="#情况一：2的h中没有引入1的内容，cpp中引入" class="headerlink" title="情况一：2的h中没有引入1的内容，cpp中引入"></a>情况一：2的h中没有引入1的内容，cpp中引入</h5><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifndef</span> <span class="token expression">DLLDEMO2_DLLDEMO2_H</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token expression">DLLDEMO2_DLLDEMO2_H</span></span>
+
+<span class="token comment">//#include "DllDemo.h"</span>
+
+<span class="token function">__declspec</span><span class="token punctuation">(</span>dllexport<span class="token punctuation">)</span> <span class="token keyword">void</span> <span class="token function">sayHello2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">__declspec</span><span class="token punctuation">(</span>dllexport<span class="token punctuation">)</span> <span class="token keyword">int</span> <span class="token function">myAdd2</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//class __declspec(dllexport) Student2: Student{</span>
+<span class="token comment">//public:</span>
+<span class="token comment">//    void setAge2(int age);</span>
+<span class="token comment">//    int getAge2();</span>
+<span class="token comment">//private:</span>
+<span class="token comment">//    int age2;</span>
+<span class="token comment">//};</span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span> <span class="token comment">//DLLDEMO2_DLLDEMO2_H</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"DllDemo2.h"</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"DllDemo.h"</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+using namespace std<span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">sayHello2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    cout<span class="token operator">&lt;&lt;</span><span class="token string">"hello2222"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    <span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Student tian<span class="token punctuation">;</span>
+    tian<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">"dlldemo2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout<span class="token operator">&lt;&lt;</span>tian<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">myAdd2</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">myAdd</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">//</span>
+<span class="token comment">//void Student2::setAge2(int age) {</span>
+<span class="token comment">//    this-&gt;age2 = age;</span>
+<span class="token comment">//}</span>
+<span class="token comment">//</span>
+<span class="token comment">//int Student2::getAge2() {</span>
+<span class="token comment">//    return this-&gt;age2;</span>
+<span class="token comment">//}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="情况二：2的h中引入了1的内容"><a href="#情况二：2的h中引入了1的内容" class="headerlink" title="情况二：2的h中引入了1的内容"></a>情况二：2的h中引入了1的内容</h5><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifndef</span> <span class="token expression">DLLDEMO2_DLLDEMO2_H</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token expression">DLLDEMO2_DLLDEMO2_H</span></span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"DllDemo.h"</span></span>
+
+<span class="token function">__declspec</span><span class="token punctuation">(</span>dllexport<span class="token punctuation">)</span> <span class="token keyword">void</span> <span class="token function">sayHello2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+class <span class="token function">__declspec</span><span class="token punctuation">(</span>dllexport<span class="token punctuation">)</span> Student2<span class="token operator">:</span> Student<span class="token punctuation">{</span>
+public<span class="token operator">:</span>
+    <span class="token keyword">void</span> <span class="token function">setAge2</span><span class="token punctuation">(</span><span class="token keyword">int</span> age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> <span class="token function">getAge2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+private<span class="token operator">:</span>
+    <span class="token keyword">int</span> age2<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span> <span class="token comment">//DLLDEMO2_DLLDEMO2_H</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"DllDemo2.h"</span></span>
+
+<span class="token keyword">void</span> <span class="token function">sayHello2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    cout<span class="token operator">&lt;&lt;</span><span class="token string">"hello2222"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    <span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> Student2<span class="token operator">::</span><span class="token function">setAge2</span><span class="token punctuation">(</span><span class="token keyword">int</span> age<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    this<span class="token operator">-&gt;</span>age2 <span class="token operator">=</span> age<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> Student2<span class="token operator">::</span><span class="token function">getAge2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> this<span class="token operator">-&gt;</span>age2<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="cmaklists-txt"><a href="#cmaklists-txt" class="headerlink" title="cmaklists.txt"></a>cmaklists.txt</h4><pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake"><span class="token keyword">cmake_minimum_required</span><span class="token punctuation">(</span><span class="token property">VERSION</span> <span class="token number">3.21</span><span class="token punctuation">)</span>
+<span class="token keyword">project</span><span class="token punctuation">(</span>DllDemo2<span class="token punctuation">)</span>
+
+<span class="token keyword">set</span><span class="token punctuation">(</span><span class="token variable">CMAKE_CXX_STANDARD</span> <span class="token number">14</span><span class="token punctuation">)</span>
+
+<span class="token keyword">include_directories</span><span class="token punctuation">(</span>
+        src
+        lib
+<span class="token punctuation">)</span>
+
+<span class="token comment"># 新增;指项目根目录下的lib目录</span>
+<span class="token keyword">link_directories</span><span class="token punctuation">(</span>
+        lib
+<span class="token punctuation">)</span>
+
+<span class="token keyword">add_library</span><span class="token punctuation">(</span><span class="token punctuation">${</span><span class="token variable">PROJECT_NAME</span><span class="token punctuation">}</span> <span class="token namespace">SHARED</span>
+        <span class="token string">"src/library.cpp"</span>
+        <span class="token string">"src/DllDemo2.cpp"</span>
+        <span class="token string">"src/DllDemo2.h"</span><span class="token punctuation">)</span>
+
+
+<span class="token comment"># 新增;指目标链接的dll文件</span>
+<span class="token keyword">target_link_libraries</span><span class="token punctuation">(</span><span class="token punctuation">${</span><span class="token variable">PROJECT_NAME</span><span class="token punctuation">}</span>
+        DllDemo
+        <span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="添加lib到编译器的环境变量中"><a href="#添加lib到编译器的环境变量中" class="headerlink" title="添加lib到编译器的环境变量中"></a>添加lib到编译器的环境变量中</h4><h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><h5 id="情况一：2的h中没有引入1的内容，cpp中引入了"><a href="#情况一：2的h中没有引入1的内容，cpp中引入了" class="headerlink" title="情况一：2的h中没有引入1的内容，cpp中引入了"></a>情况一：2的h中没有引入1的内容，cpp中引入了</h5><p>只需要将1的dll和2的三个文件放入lib中</p>
+<p>添加lib环境变量</p>
+<p>cmake</p>
+<pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake"><span class="token keyword">cmake_minimum_required</span><span class="token punctuation">(</span><span class="token property">VERSION</span> <span class="token number">3.21</span><span class="token punctuation">)</span>
+<span class="token keyword">project</span><span class="token punctuation">(</span>DllUser2<span class="token punctuation">)</span>
+
+<span class="token keyword">set</span><span class="token punctuation">(</span><span class="token variable">CMAKE_CXX_STANDARD</span> <span class="token number">14</span><span class="token punctuation">)</span>
+
+<span class="token keyword">include_directories</span><span class="token punctuation">(</span>
+        src
+        lib
+<span class="token punctuation">)</span>
+
+<span class="token comment"># 新增;指项目根目录下的lib目录</span>
+<span class="token keyword">link_directories</span><span class="token punctuation">(</span>lib<span class="token punctuation">)</span>
+
+<span class="token keyword">add_executable</span><span class="token punctuation">(</span><span class="token punctuation">${</span><span class="token variable">PROJECT_NAME</span><span class="token punctuation">}</span>
+        src/main.cpp<span class="token punctuation">)</span>
+
+<span class="token comment"># 新增;指目标链接的dll文件</span>
+<span class="token keyword">target_link_libraries</span><span class="token punctuation">(</span><span class="token punctuation">${</span><span class="token variable">PROJECT_NAME</span><span class="token punctuation">}</span>
+<span class="token comment">#只需要dlldemo2</span>
+        DllDemo2<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>测试</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"DllDemo2.h"</span></span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Hello, World!"</span> <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+    <span class="token function">sayHello2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    std<span class="token operator">::</span>cout<span class="token operator">&lt;&lt;</span><span class="token function">myAdd2</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="./assets/dll%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/202204161801691.png" alt="image-20220415131004040"></p>
+<h5 id="情况二：2的h中引入1"><a href="#情况二：2的h中引入1" class="headerlink" title="情况二：2的h中引入1"></a>情况二：2的h中引入1</h5><p>将1和2的三个文件（dll、lib、h）均放入到lib中</p>
+<p>添加lib目录环境变量</p>
+<p>添加cmakelists.txt</p>
+<pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake"><span class="token keyword">cmake_minimum_required</span><span class="token punctuation">(</span><span class="token property">VERSION</span> <span class="token number">3.21</span><span class="token punctuation">)</span>
+<span class="token keyword">project</span><span class="token punctuation">(</span>DllUser2<span class="token punctuation">)</span>
+
+<span class="token keyword">set</span><span class="token punctuation">(</span><span class="token variable">CMAKE_CXX_STANDARD</span> <span class="token number">14</span><span class="token punctuation">)</span>
+
+<span class="token keyword">include_directories</span><span class="token punctuation">(</span>
+        src
+        lib
+<span class="token punctuation">)</span>
+
+<span class="token comment"># 新增;指项目根目录下的lib目录</span>
+<span class="token keyword">link_directories</span><span class="token punctuation">(</span>lib<span class="token punctuation">)</span>
+
+<span class="token keyword">add_executable</span><span class="token punctuation">(</span><span class="token punctuation">${</span><span class="token variable">PROJECT_NAME</span><span class="token punctuation">}</span>
+        src/main.cpp<span class="token punctuation">)</span>
+
+<span class="token comment"># 新增;指目标链接的dll文件</span>
+<span class="token keyword">target_link_libraries</span><span class="token punctuation">(</span><span class="token punctuation">${</span><span class="token variable">PROJECT_NAME</span><span class="token punctuation">}</span>
+        DllDemo
+        DllDemo2<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>调用</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"DllDemo2.h"</span></span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Hello, World!"</span> <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+    Student tian<span class="token punctuation">;</span>
+    tian<span class="token punctuation">.</span><span class="token function">setAge</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout<span class="token operator">&lt;&lt;</span>tian<span class="token punctuation">.</span><span class="token function">getAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+
+    Student2 tian2<span class="token punctuation">;</span>
+    tian2<span class="token punctuation">.</span><span class="token function">setAge2</span><span class="token punctuation">(</span><span class="token number">123</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout<span class="token operator">&lt;&lt;</span>tian2<span class="token punctuation">.</span><span class="token function">getAge2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    <span class="token function">sayHello2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="Visual-Studio-msvc（c-）"><a href="#Visual-Studio-msvc（c-）" class="headerlink" title="Visual Studio  + msvc（c++）"></a>Visual Studio  + msvc（c++）</h2><p>参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/freeking101/article/details/104632710/?utm_medium=distribute.wap_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-1.wap_blog_relevant_default&amp;spm=1001.2101.3001.4242.2&amp;utm_relevant_index=4">博客</a></p>
+<blockquote>
+<p>可以直接调用clion生成的dll</p>
+<p>生成平台X86、X64要注意，要和要调用该DLL的平台保持一直</p>
+</blockquote>
+<h3 id="生成dll"><a href="#生成dll" class="headerlink" title="生成dll"></a>生成dll</h3><p>把 函数 声明放在 .h 中，函数定义放在 cpp 文件中。</p>
+<h4 id="新建项目-2"><a href="#新建项目-2" class="headerlink" title="新建项目"></a>新建项目</h4><p>选择<code>具有导出项的DLL动态链接库</code></p>
+<p><img src="./assets/dll%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/202204161801655.png" alt="image-20220415205304326"></p>
+<p><img src="./assets/dll%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/202204161801582.png" alt="image-20220415205923849"></p>
+<h4 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h4><h5 id="声明导出"><a href="#声明导出" class="headerlink" title="声明导出"></a>声明导出</h5><p>头文件</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// 以c方式导出</span>
+<span class="token keyword">extern</span> <span class="token string">"C"</span> <span class="token function">__declspec</span><span class="token punctuation">(</span>dllexport<span class="token punctuation">)</span> <span class="token keyword">void</span> <span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 以c++方式导出</span>
+<span class="token function">__declspec</span><span class="token punctuation">(</span>dllexport<span class="token punctuation">)</span> <span class="token keyword">void</span> <span class="token function">hello1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//以.def方式导出</span>
+<span class="token keyword">void</span> <span class="token function">hello2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>源文件</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"pch.h"</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"framework.h"</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"Dll2.h"</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+
+<span class="token keyword">void</span> <span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"hello"</span> <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">void</span> <span class="token function">hello1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"hello11"</span> <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">hello2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"hello2"</span> <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>然后点击 “ 生成解决方案 ” ，就可以在工程目录的 debug 目录或者 release 目录下（这取决你生成的是debug版本还是release版本）生成了动态链接库的相关文件。第三方调用时关键的文件为 <strong>.lib文件</strong> 和 <strong>.dll文件</strong> 以及工程目录下的 <strong>.h头文件</strong> 。</p>
+<h5 id="模板定义方式导出"><a href="#模板定义方式导出" class="headerlink" title="模板定义方式导出"></a>模板定义方式导出</h5><p>在项目中定义.def 文件，该文件为模块导出文件</p>
+<p><img src="./assets/dll%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/202204161801369.png" alt="image-20220415210130710"></p>
+<p>编写.def</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">LIBRARY
+EXPORTS
+	hello2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>如果是vs平台，需要在连接器中添加.def文件，如果是通过上述方式添加的.def，会自动添加</p>
+<p><img src="./assets/dll%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/202204161801001.png" alt="image-20220415210911123"></p>
+<p>然后点击 “ 生成解决方案 ” ，就可以在工程目录的 debug 目录或者 release 目录下（这取决你生成的是debug版本还是release版本）生成了动态链接库的相关文件。第三方调用时关键的文件为 <strong>.lib文件</strong> 和 <strong>.dll文件</strong> 以及工程目录下的 <strong>.h头文件</strong> </p>
+<p><img src="./assets/dll%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/202204161801637.png" alt="image-20220415211216385"></p>
+<h3 id="调用-1"><a href="#调用-1" class="headerlink" title="调用"></a>调用</h3><h4 id="新建C-控制台应用"><a href="#新建C-控制台应用" class="headerlink" title="新建C++控制台应用"></a>新建C++控制台应用</h4><h4 id="将dll放在debug目录下，将h和lib放在可以找到的位置"><a href="#将dll放在debug目录下，将h和lib放在可以找到的位置" class="headerlink" title="将dll放在debug目录下，将h和lib放在可以找到的位置"></a>将dll放在debug目录下，将h和lib放在可以找到的位置</h4><p>   .dll文件是程序运行需要载入的动态链接库，VS中调试时可以通过 项目-&gt;属性-&gt;调试-&gt;环境 栏目添加.dll文件的 path 而成功调试，但在独立运行.exe程序是须将.dll文件放到同一目录下。</p>
+<p>​     因此建议直接将 .dll文件 放入debug目录下或release目录下。.h头文件 和 .lib库文件 可以随意放置，只要是能够通过路径找到即可，为了方便管理，建议建立文件夹，放置在项目目录下。</p>
+<h4 id="调用-2"><a href="#调用-2" class="headerlink" title="调用"></a>调用</h4><p>可以直接调用Clion生成的Dll，应该只与编译器有关（用的都是同一个版本的msvc）</p>
+<h5 id="直接添加引用"><a href="#直接添加引用" class="headerlink" title="直接添加引用"></a>直接添加引用</h5><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"Dll2.h"</span><span class="token comment">//通过相对路径或绝对路径添加头文件</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">pragma</span> <span class="token expression"><span class="token function">comment</span> <span class="token punctuation">(</span>lib<span class="token punctuation">,</span></span><span class="token string">"Dll2.lib"</span><span class="token expression"><span class="token punctuation">)</span>  </span><span class="token comment">// 添加 lib 文件</span></span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Hello World!\n"</span><span class="token punctuation">;</span>
+    <span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">hello1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">hello2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="./assets/dll%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/202204161801293.png" alt="image-20220415211932141"></p>
+<h5 id="在解决方案管理面板中添加头文件和资源文件"><a href="#在解决方案管理面板中添加头文件和资源文件" class="headerlink" title="在解决方案管理面板中添加头文件和资源文件"></a>在解决方案管理面板中添加头文件和资源文件</h5><p>添加一个现有项头文件，在文件夹中找到第三方库的头文件( .h )，添加进新建立的项目。<br>添加一个现有项资源文件，在文件夹中找到第三方库的库文件( .lib )，添加进新建立的项目。</p>
+<p><img src="./assets/dll%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/202204161801281.png" alt="image-20220415212042047"></p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"Dll2.h"</span><span class="token comment">//通过相对路径或绝对路径添加头文件</span></span>
+<span class="token comment">//#pragma comment (lib,"Dll2.lib")  // 添加 lib 文件</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Hello World!\n"</span><span class="token punctuation">;</span>
+    <span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">hello1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">hello2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="在-项目属性-gt-设置-中-添加-头文件-和-库文件"><a href="#在-项目属性-gt-设置-中-添加-头文件-和-库文件" class="headerlink" title="在 项目属性 -> 设置 中 添加 头文件 和 库文件"></a>在 项目属性 -&gt; 设置 中 添加 头文件 和 库文件</h5><ul>
+<li>项目-&gt;属性-&gt;VC++目录-&gt;包含目录 中添加第三方库的 <strong>头文件</strong>；</li>
+<li>库目录 下 添加 第三方库 的 <strong>库文件(.lib文件）</strong>。</li>
+<li>项目-&gt;属性-&gt;链接器-&gt;输入-&gt;附加依赖项中输入 <strong>库文件名称</strong>。</li>
+</ul>
+<h5 id="直接在代码load动态库文件"><a href="#直接在代码load动态库文件" class="headerlink" title="直接在代码load动态库文件"></a>直接在代码load动态库文件</h5><p>这种方法不需要 include .h文件，不需要添加 lib库 和 lib库路径，</p>
+<ul>
+<li>引入 windows.h（必须）</li>
+<li>在 main 函数写下列语句调用 dll</li>
+</ul>
+<p>​         因为 C++ 声明 的 动态链接库会发生 Name Mangling，导致 编译后的函数名字会发生变化，所以需要使用 工具 查看 编译编译后的 动态链接库 对应的函数名。</p>
+<p>​        而 extern “C” 声明的 和 def 文件声明的，编译后的函数名不会发生变化，可以直接使用。</p>
+<p>VS2019 自带的工具 dumpbin.exe 可以查看编译后的 动态链接库对应的 函数名。</p>
+<p><img src="./assets/dll%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/202204161801247.png" alt="image-20220415212305795"></p>
+<p>打开命令行，输入命令 <code>dumpbin -exports Dll2.dll</code></p>
+<p>这里采用博客中的内容：</p>
+<p><img src="./assets/dll%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/202204161801007.png" alt="img"></p>
+<p>所以 addFunc 不能直接使用，只能用被 name Mangling 后的名字 ，这里 <strong>addFunc</strong> 编译后的名字是 <strong>?addFunc@@YAHHH@Z</strong></p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;windows.h&gt;</span></span>
+ 
+ 
+<span class="token comment">// 加、减、乘 都是 int 类型</span>
+<span class="token keyword">typedef</span> <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token operator">*</span>lpFunc<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//后边为参数，前面为返回值</span>
+ 
+<span class="token comment">// 除法 是 double 类型</span>
+<span class="token keyword">typedef</span> <span class="token keyword">double</span><span class="token punctuation">(</span><span class="token operator">*</span>lpFuncD<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">double</span> a<span class="token punctuation">,</span> <span class="token keyword">double</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//后边为参数，前面为返回值</span>
+ 
+ 
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Hello World!\n"</span><span class="token punctuation">;</span>
+ 
+	HMODULE hModule<span class="token punctuation">;</span>
+	hModule <span class="token operator">=</span> <span class="token function">LoadLibrary</span><span class="token punctuation">(</span>L<span class="token string">"CPPDLL.dll"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//调用DLL	</span>
+ 
+	lpFunc lpfunc <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+ 
+	<span class="token comment">// GetProcAddress为获取该函数的地址 </span>
+	<span class="token comment">// "?addFunc@@YAHHH@Z" 这个就是 C++  Name Mangling后的 addFunc 的函数名</span>
+	lpfunc <span class="token operator">=</span> <span class="token punctuation">(</span>lpFunc<span class="token punctuation">)</span><span class="token function">GetProcAddress</span><span class="token punctuation">(</span>hModule<span class="token punctuation">,</span> <span class="token string">"?addFunc@@YAHHH@Z"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token function">lpfunc</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+ 
+	<span class="token comment">/* 使用 C extern 和 def 文件定义的动态链接库，函数名不会发生变化 */</span>
+	lpfunc <span class="token operator">=</span> <span class="token punctuation">(</span>lpFunc<span class="token punctuation">)</span><span class="token function">GetProcAddress</span><span class="token punctuation">(</span>hModule<span class="token punctuation">,</span> <span class="token string">"subFunc"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token function">lpfunc</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+ 
+	lpfunc <span class="token operator">=</span> <span class="token punctuation">(</span>lpFunc<span class="token punctuation">)</span><span class="token function">GetProcAddress</span><span class="token punctuation">(</span>hModule<span class="token punctuation">,</span> <span class="token string">"mulFunc"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token function">lpfunc</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+ 
+	lpFuncD lpfuncd <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+	lpfuncd <span class="token operator">=</span> <span class="token punctuation">(</span>lpFuncD<span class="token punctuation">)</span><span class="token function">GetProcAddress</span><span class="token punctuation">(</span>hModule<span class="token punctuation">,</span> <span class="token string">"divFunc"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token function">lpfuncd</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+	
+	<span class="token comment">//释放</span>
+	<span class="token function">FreeLibrary</span><span class="token punctuation">(</span>hModule<span class="token punctuation">)</span><span class="token punctuation">;</span>	
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="使用lib和dll文件"><a href="#使用lib和dll文件" class="headerlink" title="使用lib和dll文件"></a>使用lib和dll文件</h5><ul>
+<li>把 <strong>CPPDLL.dll</strong> 文件放到 debug 目录下，</li>
+<li>然后在项目中引入 <strong>CPPDLL.lib</strong> 文件。 <strong>链接器</strong> -&gt; <strong>输入</strong> -&gt; <strong>附加依赖项</strong> -&gt; <strong>编辑</strong></li>
+</ul>
+<p><img src="./assets/dll%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/202204161802483.png" alt="img"></p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+ 
+ 
+<span class="token comment">// addFunc 是使用 C++ 方式声明的，</span>
+<span class="token function">_declspec</span><span class="token punctuation">(</span>dllimport<span class="token punctuation">)</span> <span class="token keyword">int</span> <span class="token function">addFunc</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ 
+<span class="token comment">//subFunc 是 使用 extern "C" 声明的</span>
+<span class="token keyword">extern</span> <span class="token string">"C"</span> <span class="token function">_declspec</span><span class="token punctuation">(</span>dllimport<span class="token punctuation">)</span> <span class="token keyword">int</span> <span class="token function">subFunc</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ 
+<span class="token comment">// mulFunc 和 divFunc 是 使用 def 声明的</span>
+<span class="token function">_declspec</span><span class="token punctuation">(</span>dllimport<span class="token punctuation">)</span> <span class="token keyword">int</span> <span class="token function">mulFunc</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">_declspec</span><span class="token punctuation">(</span>dllimport<span class="token punctuation">)</span> <span class="token keyword">double</span> <span class="token function">divFunc</span><span class="token punctuation">(</span><span class="token keyword">double</span> a<span class="token punctuation">,</span> <span class="token keyword">double</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ 
+ 
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Hello World!\n"</span><span class="token punctuation">;</span>
+ 
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token function">addFunc</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token function">subFunc</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token function">mulFunc</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token function">divFunc</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+ 
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>还可以结合 <strong>第一种方法</strong>，使用 <strong>#pragma comment (lib,”./CPPDLL.lib”)</strong> //添加 lib 文件 </p>
+<p>这样就不用 手动设置 添加 lib 文件了</p>
+<h4 id="多层调用-1"><a href="#多层调用-1" class="headerlink" title="多层调用"></a>多层调用</h4><p>只需要把多层的dll都放进去即可</p>
+<h2 id="VisualStudio-（c-）调用c-的DLL"><a href="#VisualStudio-（c-）调用c-的DLL" class="headerlink" title="VisualStudio （c#）调用c++的DLL"></a>VisualStudio （c#）调用c++的DLL</h2><blockquote>
+<p>个人一般只用c#调用c++代码</p>
+<p>可以直接调用Clion生成的DLL，但是只能调用<strong>extern “C”声明的导出函数</strong></p>
+</blockquote>
+<p>注意：一般msvc版本是X86的，要注意，使用x64位的netCore无法调用，这里我用的是netFramwork</p>
+<h3 id="生成DLL-1"><a href="#生成DLL-1" class="headerlink" title="生成DLL"></a>生成DLL</h3><p>使用Clion，也可以使用visualStudion，生成方法同上，这里只列出代码部分</p>
+<h4 id="第一层："><a href="#第一层：" class="headerlink" title="第一层："></a>第一层：</h4><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifndef</span> <span class="token expression">DLLDEMO_DLLDEMO_H</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token expression">DLLDEMO_DLLDEMO_H</span></span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;string&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+using namespace std<span class="token punctuation">;</span>
+
+<span class="token keyword">extern</span> <span class="token string">"C"</span> <span class="token function">__declspec</span><span class="token punctuation">(</span>dllexport<span class="token punctuation">)</span> <span class="token keyword">void</span> <span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">__declspec</span><span class="token punctuation">(</span>dllexport<span class="token punctuation">)</span> <span class="token keyword">void</span> <span class="token function">sayHello1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">extern</span> <span class="token string">"C"</span> <span class="token function">__declspec</span><span class="token punctuation">(</span>dllexport<span class="token punctuation">)</span> <span class="token keyword">int</span> <span class="token function">myAdd</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+class Student<span class="token punctuation">{</span>
+public<span class="token operator">:</span>
+    string name<span class="token punctuation">;</span>
+    <span class="token keyword">void</span> <span class="token function">studentHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span> <span class="token comment">//DLLDEMO_DLLDEMO_H</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"DllDemo.h"</span></span>
+
+<span class="token keyword">void</span> Student<span class="token operator">::</span><span class="token function">studentHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    cout<span class="token operator">&lt;&lt;</span><span class="token string">"studentHello"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    Student s<span class="token punctuation">;</span>
+    s<span class="token punctuation">.</span><span class="token function">studentHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout<span class="token operator">&lt;&lt;</span><span class="token string">"hello1111111!"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">sayHello1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    Student s<span class="token punctuation">;</span>
+    s<span class="token punctuation">.</span><span class="token function">studentHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout<span class="token operator">&lt;&lt;</span><span class="token string">"hello1111111!"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">myAdd</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> a<span class="token operator">+</span>b<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="第二层"><a href="#第二层" class="headerlink" title="第二层"></a>第二层</h4><p>将1的三个文件放入lib</p>
+<p>配置编译器lib环境变量</p>
+<p>添加cmakelists.txt</p>
+<p>编写调用代码</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">//</span>
+<span class="token comment">// Created by 12038 on 2022/4/15.</span>
+<span class="token comment">//</span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifndef</span> <span class="token expression">DLLDEMO2_DLLDEMO2_H</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token expression">DLLDEMO2_DLLDEMO2_H</span></span>
+
+<span class="token comment">//#include "DllDemo.h"</span>
+
+<span class="token keyword">extern</span> <span class="token string">"C"</span> <span class="token function">__declspec</span><span class="token punctuation">(</span>dllexport<span class="token punctuation">)</span> <span class="token keyword">void</span> <span class="token function">sayHello2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">extern</span> <span class="token string">"C"</span> <span class="token function">__declspec</span><span class="token punctuation">(</span>dllexport<span class="token punctuation">)</span> <span class="token keyword">int</span> <span class="token function">myAdd2</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+class Student2<span class="token punctuation">{</span>
+public<span class="token operator">:</span>
+    <span class="token keyword">void</span> <span class="token function">student2Hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span> <span class="token comment">//DLLDEMO2_DLLDEMO2_H</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">//</span>
+<span class="token comment">// Created by 12038 on 2022/4/15.</span>
+<span class="token comment">//</span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"DllDemo2.h"</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"DllDemo.h"</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+using namespace std<span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">sayHello2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    cout<span class="token operator">&lt;&lt;</span><span class="token string">"hello2222"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    <span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Student2 tian<span class="token punctuation">;</span>
+    tian<span class="token punctuation">.</span><span class="token function">student2Hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">myAdd2</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">myAdd</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">//</span>
+<span class="token keyword">void</span> Student2<span class="token operator">::</span><span class="token function">student2Hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    cout<span class="token operator">&lt;&lt;</span><span class="token string">"student22222Hello"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="visual-studio调用"><a href="#visual-studio调用" class="headerlink" title="visual studio调用"></a>visual studio调用</h3><h3 id="建立netframework项目"><a href="#建立netframework项目" class="headerlink" title="建立netframework项目"></a>建立netframework项目</h3><p><img src="./assets/dll%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/202204161802422.png" alt="image-20220415183057359"></p>
+<h3 id="将两个dll文件放到debug目录下"><a href="#将两个dll文件放到debug目录下" class="headerlink" title="将两个dll文件放到debug目录下"></a>将两个dll文件放到debug目录下</h3><p><img src="./assets/dll%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/202204161802830.png" alt="image-20220415183130534"></p>
+<h3 id="调用-3"><a href="#调用-3" class="headerlink" title="调用"></a>调用</h3><p>添加<code>using System.Runtime.InteropServices;</code></p>
+<p>导入库文件<code>[DllImport("DllDemo2.dll")]</code></p>
+<p>导入函数<code>private static extern void sayHello2();</code></p>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+//添加相应的库
+using System.Runtime.InteropServices;
+
+namespace ConsoleApp3
+{
+    class Program
+    {
+        //调用
+        [DllImport("DllDemo2.dll")]
+        private static extern void sayHello2();
+        [DllImport("DllDemo2.dll")]
+        private static extern int myAdd2(int a, int b);
+        
+        static void Main(string[] args)
+        {
+            //使用
+            sayHello2();
+            Console.WriteLine(myAdd2(1, 2));
+        }
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="QT-Creator-msvc"><a href="#QT-Creator-msvc" class="headerlink" title="QT Creator + msvc"></a>QT Creator + msvc</h2><h3 id="生成dll-1"><a href="#生成dll-1" class="headerlink" title="生成dll"></a>生成dll</h3><ul>
+<li>新建dll项目</li>
+</ul>
+<p><img src="./assets/dll%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/202204161802876.png" alt="image-20220416163601291"></p>
+<p><img src="./assets/dll%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/202204161802629.png" alt="image-20220416163629764"></p>
+<p><img src="./assets/dll%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/202204161802040.png" alt="image-20220416163646551"></p>
+<p>生成后的结构如下（这里用的的DllDemo1）：</p>
+<p><img src="./assets/dll%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/202204161802235.png" alt="image-20220416171503348"></p>
+<p>其中_global.h自带两个系统默认导出宏</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifndef</span> <span class="token expression">DLLDEMO1_GLOBAL_H</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token expression">DLLDEMO1_GLOBAL_H</span></span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;QtCore/qglobal.h&gt;</span></span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">if</span> <span class="token expression"><span class="token function">defined</span><span class="token punctuation">(</span>DLLDEMO1_LIBRARY<span class="token punctuation">)</span></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span>  <span class="token directive keyword">define</span> <span class="token expression">DLLDEMO1_EXPORT Q_DECL_EXPORT</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">else</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span>  <span class="token directive keyword">define</span> <span class="token expression">DLLDEMO1_EXPORT Q_DECL_IMPORT</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span> <span class="token comment">// DLLDEMO1_GLOBAL_H</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>编写导出函数</li>
+</ul>
+<p>头文件：</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifndef</span> <span class="token expression">DLLDEMO1_H</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token expression">DLLDEMO1_H</span></span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"DllDemo1_global.h"</span></span>
+
+class DLLDEMO1_EXPORT DllDemo1
+<span class="token punctuation">{</span>
+public<span class="token operator">:</span>
+    <span class="token function">DllDemo1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">//声明导出的函数sayhello</span>
+DLLDEMO1_EXPORT <span class="token keyword">void</span> <span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//声明导出的函数myadd</span>
+DLLDEMO1_EXPORT <span class="token keyword">int</span> <span class="token function">myAdd</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span> <span class="token comment">// DLLDEMO1_H</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>源文件：</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"dlldemo1.h"</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+
+DllDemo1<span class="token operator">::</span><span class="token function">DllDemo1</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">//实现函数</span>
+<span class="token keyword">void</span> <span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    std<span class="token operator">::</span>cout<span class="token operator">&lt;&lt;</span><span class="token string">"hello, dll in qt"</span><span class="token operator">&lt;&lt;</span>std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">myadd</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    std<span class="token operator">::</span>cout<span class="token operator">&lt;&lt;</span><span class="token string">"myadd"</span><span class="token operator">&lt;&lt;</span>std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> a<span class="token operator">+</span>b<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>构建后会在debug目录下生成<strong>dll和lib文件，同时可能需要用到.h和_global.h文件</strong></p>
+<h3 id="调用-4"><a href="#调用-4" class="headerlink" title="调用"></a>调用</h3><h4 id="新建c-控制台项目"><a href="#新建c-控制台项目" class="headerlink" title="新建c++控制台项目"></a>新建c++控制台项目</h4><p><img src="./assets/dll%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/202204161802293.png" alt="image-20220416172129620"></p>
+<h4 id="构建项目，生成debug目录"><a href="#构建项目，生成debug目录" class="headerlink" title="构建项目，生成debug目录"></a>构建项目，生成debug目录</h4><h4 id="将dll文件放到debug目录"><a href="#将dll文件放到debug目录" class="headerlink" title="将dll文件放到debug目录"></a>将dll文件放到debug目录</h4><p><img src="./assets/dll%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/202204161802638.png" alt="image-20220416172227912"></p>
+<h4 id="将lib文件放到工程目录下"><a href="#将lib文件放到工程目录下" class="headerlink" title="将lib文件放到工程目录下"></a>将lib文件放到工程目录下</h4><p><img src="./assets/dll%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/202204161802366.png" alt="image-20220416172258532"></p>
+<h4 id="右键项目，添加lib库"><a href="#右键项目，添加lib库" class="headerlink" title="右键项目，添加lib库"></a>右键项目，添加lib库</h4><p><img src="./assets/dll%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/202204161802541.png"></p>
+<p><strong>选择外部库</strong></p>
+<p>选择刚才的lib文件，取消平台下的linux，mac，取消为debug版本添加d作为哦后缀，点击完成代码就被添加进call.pro</p>
+<p><img src="./assets/dll%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/202204161808242.png" alt="image-20220416172524995"></p>
+<h4 id="调用-5"><a href="#调用-5" class="headerlink" title="调用"></a>调用</h4><ul>
+<li>方法1：</li>
+</ul>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;QCoreApplication&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream&gt;</span></span>
+using namespace std<span class="token punctuation">;</span>
+
+<span class="token function">__declspec</span><span class="token punctuation">(</span>dllimport<span class="token punctuation">)</span> <span class="token keyword">void</span> <span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">__declspec</span><span class="token punctuation">(</span>dllimport<span class="token punctuation">)</span> <span class="token keyword">int</span> <span class="token function">myAdd</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span>argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    QCoreApplication <span class="token function">a</span><span class="token punctuation">(</span>argc<span class="token punctuation">,</span> argv<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    cout<span class="token operator">&lt;&lt;</span><span class="token function">myAdd</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    <span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token keyword">return</span> a<span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>方法2</li>
+</ul>
+<p>将.h和_global.h放入到项目目录下</p>
+<p>右键项目，添加两个.h文件</p>
+<p><img src="./assets/dll%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/202204161802804.png" alt="image-20220416175017723"></p>
+<p>引入头文件</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;QCoreApplication&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream&gt;</span></span>
+<span class="token comment">//引入头文件</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"./dlldemo1.h"</span></span>
+
+using namespace std<span class="token punctuation">;</span>
+
+<span class="token comment">//__declspec(dllimport) void sayHello();</span>
+<span class="token comment">//__declspec(dllimport) int myAdd(int a, int b);</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span>argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    QCoreApplication <span class="token function">a</span><span class="token punctuation">(</span>argc<span class="token punctuation">,</span> argv<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    cout<span class="token operator">&lt;&lt;</span><span class="token function">myAdd</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    <span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> a<span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">TianZD</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://www.tianzd.cn/posts/fbf11e59.html">http://www.tianzd.cn/posts/fbf11e59.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">TianZD</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/C/">
+                                    <span class="chip bg-color">C++</span>
+                                </a>
+                            
+                                <a href="/tags/DLL/">
+                                    <span class="chip bg-color">DLL</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo,twitter,facebook,google,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/zhifubao.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/weixin.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/4a17b156.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/assets/posts/20200928015642.jpg" class="responsive-img" alt="Hello World">
+                        
+                        <span class="card-title">Hello World</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-05-23
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            TianZD
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/5c8e05d2.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/assets/posts/20200928020704.jpg" class="responsive-img" alt="Anaconda">
+                        
+                        <span class="card-title">Anaconda</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Anaconda指的是一个开源的Python发行版本，其包含了conda、Python等180多个科学包及其依赖项。Conda是一个开源的包、环境管理器，可以用于在同一个机器上安装不同版本的软件包及其依赖，并能够在不同的环境之间切换
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-29
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/python/" class="post-category">
+                                    python
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
+                    </a>
+                    
+                    <a href="/tags/conda/">
+                        <span class="chip bg-color">conda</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: TianZD<br />'
+            + '文章作者: TianZD<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2022</span>
+            
+            <span id="year">2022</span>
+            <a href="/about" target="_blank">TianZD</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">29.7k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2022";
+                    var startMonth = "4";
+                    var startDate = "2";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+            <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                <a href="http://www.beian.miit.gov.cn/" target="_blank">沪ICP备2022013404号</a>
+            </span>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/tianzhendong/" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1203886034@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1203886034" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1203886034" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.11/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+<!-- 深色模式按钮 -->
+    <script>
+        if (localStorage.getItem('dark') === '1') {
+        document.body.classList.add('dark');
+        }
+        else if (new Date().getHours() >= 22 || new Date().getHours() < 7) {
+        document.body.classList.add('dark');
+        } 
+        else if (matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+        }
+    </script>
+    <a onclick="switchNightMode()" id="sma">
+        <i class="fas fa-lightbulb" id="nightMode" aria-hidden="true"></i>
+    </a>
+
+    <!-- 天气接口控件   -->
+    
+        <script type="text/javascript">
+        WIDGET = {FID: 'zLkJSQpqsh'}
+        </script>
+    <!-- <script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script> -->
+
+    <script type="text/javascript">
+      var windowWidth = $(window).width();
+      if (windowWidth > 768) {
+          document.write('<script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"><\/script>');
+      }
+    </script>
+    
+
+    
+
+	
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
